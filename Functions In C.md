@@ -229,7 +229,7 @@ When `func` finishes execution:
 |**RAM (stack)**|—|argument: `5`|
 |**RAM (stack)**|—|return value: `20`|
 
-![[story_of_the_function_corrected 1.svg|697]]
+![[story_of_the_function_corrected.svg|697]]
 ---
 
 ## Review Questions
