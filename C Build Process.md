@@ -12,9 +12,10 @@ The final output format (`.exe`, `.hex`, `.elf`) depends on the target platform.
 
 ## Overview: The Four Stages
 
+
 <div style="font-family: 'Courier New', monospace; background: #0d1117; color: #c9d1d9; border-radius: 12px; padding: 28px 32px; margin: 24px 0; border: 1px solid #30363d;"> <div style="display: flex; align-items: center; gap: 0; flex-wrap: wrap;">
 
-```
+
 <div style="background: #1f6feb; border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 90px;">
   <div style="font-size: 11px; color: #79c0ff; text-transform: uppercase; letter-spacing: 1px;">Input</div>
   <div style="font-size: 16px; font-weight: bold; margin-top: 4px;">file.c</div>
@@ -59,9 +60,10 @@ The final output format (`.exe`, `.hex`, `.elf`) depends on the target platform.
   <div style="font-weight: bold; color: #f0883e;">Linker</div>
   <div style="font-size: 11px; color: #8b949e; margin-top: 4px;">→ file.exe</div>
 </div>
-```
 
 </div> </div>
+
+
 
 ---
 
