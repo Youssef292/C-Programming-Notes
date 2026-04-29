@@ -149,7 +149,7 @@ void func(void)
 
 **Generated Symbol Tables:**
 
-<div style="font-family: 'Courier New', monospace; background: #0d1117; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #30363d; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;"> <div style="background: #161b22; border-radius: 8px; border: 1px solid #388bfd; padding: 16px;"> <div style="color: #388bfd; font-weight: bold; margin-bottom: 12px; font-size: 14px;">📄 file1.o — Symbol Table</div> <table style="width:100%; border-collapse: collapse; font-size: 13px;"> <tr style="color: #8b949e; border-bottom: 1px solid #30363d;"> <th style="padding: 4px 8px; text-align:left;">Object</th> <th style="padding: 4px 8px; text-align:left;">Type</th> <th style="padding: 4px 8px; text-align:left;">State</th> </tr> <tr style="color: #3fb950;"> <td style="padding: 6px 8px;">x</td> <td style="padding: 6px 8px;">int</td> <td style="padding: 6px 8px; font-weight: bold;">PROVIDED ✓</td> </tr> </table> </div> <div style="background: #161b22; border-radius: 8px; border: 1px solid #f85149; padding: 16px;"> <div style="color: #f85149; font-weight: bold; margin-bottom: 12px; font-size: 14px;">📄 file2.o — Symbol Table</div> <table style="width:100%; border-collapse: collapse; font-size: 13px;"> <tr style="color: #8b949e; border-bottom: 1px solid #30363d;"> <th style="padding: 4px 8px; text-align:left;">Object</th> <th style="padding: 4px 8px; text-align:left;">Type</th> <th style="padding: 4px 8px; text-align:left;">State</th> </tr> <tr style="color: #f85149;"> <td style="padding: 6px 8px;">x</td> <td style="padding: 6px 8px;">int</td> <td style="padding: 6px 8px; font-weight: bold;">NEEDED ←</td> </tr> <tr style="color: #3fb950;"> <td style="padding: 6px 8px;">func()</td> <td style="padding: 6px 8px;">void</td> <td style="padding: 6px 8px; font-weight: bold;">PROVIDED ✓</td> </tr> </table> </div> </div>
+![Function Story](./c_build_symbol_tables.svg)
 
 The linker performs **two verification checks** on all symbol tables:
 
@@ -241,7 +241,7 @@ void func2(void)
 
 ### Symbol Tables
 
-<div style="font-family: 'Courier New', monospace; background: #0d1117; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #30363d; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;"> <div style="background: #161b22; border-radius: 8px; border: 1px solid #388bfd; padding: 14px;"> <div style="color: #388bfd; font-weight: bold; margin-bottom: 10px; font-size: 13px;">📄 file1.o</div> <div style="font-size: 12px;"> <div style="color: #3fb950; padding: 3px 0;">✓ x : int [PROVIDED]</div> <div style="color: #3fb950; padding: 3px 0;">✓ main : fn [PROVIDED]</div> </div> </div> <div style="background: #161b22; border-radius: 8px; border: 1px solid #7ee787; padding: 14px;"> <div style="color: #7ee787; font-weight: bold; margin-bottom: 10px; font-size: 13px;">📄 file2.o</div> <div style="font-size: 12px;"> <div style="color: #f85149; padding: 3px 0;">← x : int [NEEDED]</div> <div style="color: #3fb950; padding: 3px 0;">✓ func : fn [PROVIDED]</div> </div> </div> <div style="background: #161b22; border-radius: 8px; border: 1px solid #d2a8ff; padding: 14px;"> <div style="color: #d2a8ff; font-weight: bold; margin-bottom: 10px; font-size: 13px;">📄 file3.o</div> <div style="font-size: 12px;"> <div style="color: #6e7681; padding: 3px 0;">⊘ x : static [HIDDEN]</div> <div style="color: #3fb950; padding: 3px 0;">✓ func2 : fn [PROVIDED]</div> </div> </div> </div>
+![Function Story](./c_build_symbol_tables_3files.svg)
 
 ### Expected Output
 
