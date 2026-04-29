@@ -12,55 +12,7 @@ The final output format (`.exe`, `.hex`, `.elf`) depends on the target platform.
 
 ## Overview: The Four Stages
 
-
-<div style="background: #1f6feb; border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 90px;">
-  <div style="font-size: 11px; color: #79c0ff; text-transform: uppercase; letter-spacing: 1px;">Input</div>
-  <div style="font-size: 16px; font-weight: bold; margin-top: 4px;">file.c</div>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; margin: 0 4px;">
-  <div style="color: #f0883e; font-size: 20px;">↓</div>
-</div>
-
-<div style="background: #388bfd22; border: 1px solid #388bfd; border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 110px;">
-  <div style="font-size: 11px; color: #79c0ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Stage 1</div>
-  <div style="font-weight: bold; color: #79c0ff;">Preprocessor</div>
-  <div style="font-size: 11px; color: #8b949e; margin-top: 4px;">↓ file.i</div>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; margin: 0 4px;">
-  <div style="color: #f0883e; font-size: 20px;">↓</div>
-</div>
-
-<div style="background: #3fb95022; border: 1px solid #3fb950; border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 110px;">
-  <div style="font-size: 11px; color: #7ee787; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Stage 2</div>
-  <div style="font-weight: bold; color: #7ee787;">Compiler</div>
-  <div style="font-size: 11px; color: #8b949e; margin-top: 4px;">→ file.asm</div>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; margin: 0 4px;">
-  <div style="color: #f0883e; font-size: 20px;">↓</div>
-</div>
-
-<div style="background: #bc8cff22; border: 1px solid #bc8cff; border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 110px;">
-  <div style="font-size: 11px; color: #d2a8ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Stage 3</div>
-  <div style="font-weight: bold; color: #d2a8ff;">Assembler</div>
-  <div style="font-size: 11px; color: #8b949e; margin-top: 4px;">→ file.o</div>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; margin: 0 4px;">
-  <div style="color: #f0883e; font-size: 20px;">↓</div>
-</div>
-
-<div style="background: #f0883e22; border: 1px solid #f0883e; border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 110px;">
-  <div style="font-size: 11px; color: #f0883e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Stage 4</div>
-  <div style="font-weight: bold; color: #f0883e;">Linker</div>
-  <div style="font-size: 11px; color: #8b949e; margin-top: 4px;">→ file.exe</div>
-</div>
-
-
-
-
+![Function Story](./c_build_process_pipeline.svg)
 
 ---
 
@@ -150,15 +102,13 @@ The linker **collects all object files** from the project and combines them into
 
 ### Multi-File Project Flow
 
-<div style="font-family: 'Courier New', monospace; background: #0d1117; color: #c9d1d9; border-radius: 12px; padding: 28px; margin: 24px 0; border: 1px solid #30363d; overflow-x: auto;"> <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px;"> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #60a5fa;">file1.c</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #60a5fa;">file2.c</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #60a5fa;">file3.c</div> </div> <div style="text-align: center; color: #f0883e; margin: 4px 0;">↓ Preprocessor ↓</div> <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0;"> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #a5f3fc;">file1.i</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #a5f3fc;">file2.i</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #a5f3fc;">file3.i</div> </div> <div style="text-align: center; color: #f0883e; margin: 4px 0;">↓ Compiler ↓</div> <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0;"> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #86efac;">file1.asm</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #86efac;">file2.asm</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #86efac;">file3.asm</div> </div> <div style="text-align: center; color: #f0883e; margin: 4px 0;">↓ Assembler ↓</div> <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0;"> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #d8b4fe;">file1.o</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #d8b4fe;">file2.o</div> <div style="background: #1f2937; border: 1px solid #374151; border-radius: 6px; padding: 10px; text-align: center; color: #d8b4fe;">file3.o</div> </div> <div style="text-align: center; color: #f0883e; margin: 8px 0; font-size: 20px;">↘ &nbsp;&nbsp; ↓ &nbsp;&nbsp; ↙</div> <div style="text-align: center; color: #f0883e; margin: 4px 0;">Linker</div> <div style="text-align: center; color: #f0883e; margin: 4px 0;">↓</div> <div style="background: #f0883e22; border: 2px solid #f0883e; border-radius: 8px; padding: 14px; text-align: center; color: #f0883e; font-weight: bold; margin-top: 8px;"> program.exe / .elf / .hex </div> </div>
-
----
+![Function Story](./c_build_multifile_flow.svg)
 
 ## Target Dependency Analysis
 
 A key question in embedded development: **which tools change when you change the target CPU?**
 
-<div style="font-family: sans-serif; background: #0d1117; border-radius: 12px; padding: 24px; margin: 24px 0; border: 1px solid #30363d;"> <table style="width: 100%; border-collapse: collapse;"> <thead> <tr style="border-bottom: 2px solid #30363d;"> <th style="padding: 12px 16px; text-align: left; color: #8b949e; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Tool</th> <th style="padding: 12px 16px; text-align: center; color: #8b949e; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Target Dependent?</th> <th style="padding: 12px 16px; text-align: left; color: #8b949e; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Reason</th> </tr> </thead> <tbody> <tr style="border-bottom: 1px solid #21262d;"> <td style="padding: 12px 16px; color: #79c0ff; font-weight: bold;">Preprocessor</td> <td style="padding: 12px 16px; text-align: center;"> <span style="background: #3fb95033; color: #3fb950; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: bold;">Independent</span> </td> <td style="padding: 12px 16px; color: #8b949e;">Only processes text substitution and directive expansion — no CPU knowledge needed.</td> </tr> <tr style="border-bottom: 1px solid #21262d;"> <td style="padding: 12px 16px; color: #7ee787; font-weight: bold;">Compiler</td> <td style="padding: 12px 16px; text-align: center;"> <span style="background: #f8514922; color: #f85149; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: bold;">Dependent</span> </td> <td style="padding: 12px 16px; color: #8b949e;">Must know the target's instruction set (ARM ISA ≠ x86 ISA ≠ RISC-V ISA).</td> </tr> <tr style="border-bottom: 1px solid #21262d;"> <td style="padding: 12px 16px; color: #d2a8ff; font-weight: bold;">Assembler</td> <td style="padding: 12px 16px; text-align: center;"> <span style="background: #f8514922; color: #f85149; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: bold;">Dependent</span> </td> <td style="padding: 12px 16px; color: #8b949e;">Each processor has a unique opcode table. ARM opcodes differ from x86 opcodes.</td> </tr> <tr> <td style="padding: 12px 16px; color: #f0883e; font-weight: bold;">Linker</td> <td style="padding: 12px 16px; text-align: center;"> <span style="background: #e3b34122; color: #e3b341; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: bold;">Partially</span> </td> <td style="padding: 12px 16px; color: #8b949e;">The linker tool itself is independent, but it reads a <strong style="color: #f0883e;">Linker Script</strong> that is target-specific (defines flash/RAM sizes and memory map).</td> </tr> </tbody> </table> </div>
+![Function Story](./c_build_target_dependency.svg)
 
 ### The Linker Script
 
